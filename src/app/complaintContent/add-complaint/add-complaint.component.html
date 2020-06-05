@@ -1,0 +1,33 @@
+<!-- to make text in center  class="text-center"   -->
+
+<div class="container">
+
+    <div class="center-screen">
+        <h1 class="patient-headers">Add New Complaint </h1>
+        <img src="assets/images/complaint.jpg" width="800" height="300">
+    </div>
+
+    <!-- Form-->
+    <form [formGroup]="complaintDataForm" (submit)="saveComplaint()">
+        <div class="row">
+            <!-- add complaint-->
+            <div class="form-group center-screen">
+                <div class="col-sm-8">
+                    <input type="text" formControlName="complaint" [(ngModel)]="complaint.name"
+                        placeholder="Add Complaint" class="form-control">
+                    <div *ngIf="complaintControls.complaint.touched && complaintControls.complaint.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="complaintControls.complaint.errors.required">please enter complaint name
+                        </div>
+                    </div>
+                </div>
+                <!-- save complaint -->
+                <div class="col-sm-2">
+                    <input type="submit" [disabled]="complaintDataForm.invalid" class="form-control btn btn-primary"
+                        value="Add Complaint">
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

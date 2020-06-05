@@ -1,0 +1,353 @@
+<!-- Some Notes 
+=> formControlName is used together with [formGroup] to save your form multiple dot navigations.
+=> autofocus : to auto focus input field
+=> dark-grey-text is color
+=> you can't use both reactive form and ngModel together because that 
+feature is depreciated in angular6
+=>  Reactive form eample
+<form [formGroup]="groupForm" >
+  <textarea  formControlName="name" placeholder="Group Name" #textArea>
+  </textarea>
+</form>
+ -->
+
+<div class="container">
+    <h1 class="text-center patient-headers">Add Patient </h1>
+
+    <!-- Form-->
+    <form [formGroup]="patientDataForm" (submit)="savePatient()">
+
+        <div class="row">
+
+            <div class="col-sm-6 left">
+
+                <!-- Patient Fullname group-->
+                <div class="form-group">
+                    <h4>Patient Details</h4>
+                    <div class="col-sm-10">
+                        <input type="text" formControlName="fullName" [(ngModel)]="patient.fullName"
+                            placeholder="Patient Full Name" class="form-control">
+                        <div *ngIf="patientControls.fullName.touched && patientControls.fullName.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.fullName.errors.required">please enter patient full name
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Age group-->
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <input type="number" min="0" [(ngModel)]="patient.age" formControlName="age"
+                            placeholder="Patient Age" class="form-control">
+                        <div *ngIf="patientControls.age.touched && patientControls.age.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.age.errors.required">please enter patient age
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Children group-->
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <input type="number" min="0" [(ngModel)]="patient.numberOfChildren" formControlName="childrenNo"
+                            placeholder="Children Number" class="form-control">
+                        <div *ngIf="patientControls.childrenNo.touched && patientControls.childrenNo.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.childrenNo.errors.required">please enter children no</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Date of Birth group-->
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="patient.dateOfBirth" formControlName="birthdate"
+                            placeholder="Patient Birth Date" class="form-control" onmouseover="(this.type='date')"
+                            onmouseout="(this.type='text')">
+                        <div *ngIf="patientControls.birthdate.touched && patientControls.birthdate.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.birthdate.errors.required">please enter birthdate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Date of  registration-->
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="patient.dateOfRegistration" formControlName="registerdate"
+                            onmouseover="(this.type='date')" onmouseout="(this.type='text')"
+                            placeholder="Registration Date" class="form-control">
+                        <div *ngIf="patientControls.registerdate.touched && patientControls.registerdate.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.registerdate.errors.required">please enter registration date
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Date of  Follow Up-->
+                <div class="form-group">
+                    <div class="col-sm-10">
+                        <input type="text" [(ngModel)]="patient.dateOfFollowUp" formControlName="followUpDate"
+                            onmouseover="(this.type='date')" onmouseout="(this.type='text')"
+                            placeholder="Follow Up Date" class="form-control">
+                        <div *ngIf="patientControls.followUpDate.touched && patientControls.followUpDate.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.followUpDate.errors.required">please enter follow up date
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Patient Gender -->
+                <div class="form-group" (change)="handleGenderChange($event)">
+                    <div class="row col-sm-10">
+                        <h4>Gender</h4>
+                        <div class="btn-group">
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Male" formControlName="gender" checked>
+                                <span>Male</span>
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Female" formControlName="gender">
+                                <span>Female</span>
+                            </label>
+                        </div>
+                        <div *ngIf="patientControls.gender.invalid" class="alert alert-danger">
+                            <div *ngIf="patientControls.gender.errors.required">please select gender type
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Patient Marital Status -->
+                <div class="form-group" (change)="handleMaritalChange($event)">
+                    <div class="row col-sm-10">
+                        <h4>Marital Status</h4>
+                        <div class="btn-group">
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Single" formControlName="maritalStatus" checked>Single
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Married" formControlName="maritalStatus">Married
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Divorced" formControlName="maritalStatus">Divorced
+                            </label>
+                        </div>
+                        <div *ngIf="patientControls.maritalStatus.invalid" class="alert alert-danger">
+                            <div *ngIf="patientControls.maritalStatus.errors.required">please select marital status
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Occupation Group-->
+                <div class="form-group" (change)="handleOccupationChange($event)">
+                    <div class="row col-sm-10">
+                        <h4>Occupation</h4>
+                        <div class="btn-group">
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Manual" formControlName="occupation" checked>Manual
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Desk" formControlName="occupation">Desk
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Other" formControlName="occupation">Other
+                            </label>
+                        </div>
+                        <div *ngIf="patientControls.occupation.invalid" class="alert alert-danger">
+                            <div *ngIf="patientControls.occupation.errors.required">please select patient occupation
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operations-->
+                <div class="form-group" (change)="handleOperationsChange($event)">
+                    <div class="row col-sm-10">
+                        <h4>Operations</h4>
+                        <div class="btn-group">
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Yes" formControlName="operations">Yes
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="No" formControlName="operations">No
+                            </label>
+                        </div>
+                        <div *ngIf="patientControls.operations.invalid" class="alert alert-danger">
+                            <div *ngIf="patientControls.operations.errors.required">
+                                patient has previous operations ? not selected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Allergy-->
+                <div class="form-group" (change)="handleAllergyChange($event)">
+                    <div class="row col-sm-10">
+                        <h4>Allergy</h4>
+                        <div class="btn-group">
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Yes" formControlName="allergy">Yes
+                            </label>
+                            <label class="btn btn-primary">
+                                <input type="radio" value="No" formControlName="allergy">No
+                            </label>
+                        </div>
+                        <div *ngIf="patientControls.allergy.invalid" class="alert alert-danger">
+                            <div *ngIf="patientControls.allergy.errors.required">
+                                patient has previous allergy ? not selected
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- TTTTPlan-->
+                <div class="form-group" (change)="handleTTTTPlaneChange($event)">
+                    <div class="row col-sm-10">
+                        <h4>TTTT Plane</h4>
+                        <div class="btn-group">
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Medication" formControlName="ttttPlane">Medication
+                            </label>
+
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Physiotherapy" formControlName="ttttPlane">Physiotherapy
+                            </label>
+
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Cast" formControlName="ttttPlane">Cast
+                            </label>
+
+                            <label class="btn btn-primary">
+                                <input type="radio" value="Operative" formControlName="ttttPlane">Operative
+                            </label>
+                        </div>
+
+                        <div *ngIf="patientControls.ttttPlane.invalid" class="alert alert-danger">
+                            <div *ngIf="patientControls.ttttPlane.errors.required">please select patient TTTT Plane
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--  The Right Side -->
+            <div class="col-sm-6 right">
+
+                <!--  Patient Diagnostic -->
+                <div class="form-group">
+                    <div class="row col-sm-10">
+                        <h4>Patient Diagnostic</h4>
+                        <!-- Patient Complaint-->
+                        <add-patient-complaint (click)="handleComplaints()"></add-patient-complaint>
+                        <add-patient-exams (click)="handleExams()"></add-patient-exams>
+                        <add-patient-diseases (click)="handleDiseases()"></add-patient-diseases>
+                        <add-patient-medicals (click)="handleMedicines()"></add-patient-medicals>
+                        <add-patient-habits (click)="handleHabits()"></add-patient-habits>
+                    </div>
+                </div>
+
+                <!-- Patient Report  -->
+                <div class="form-group">
+                    <div class="row col-sm-10">
+                        <h4 for="report_id">Patient Report</h4>
+                        <textarea [(ngModel)]="patient.report" formControlName="report" id="report_id" rows="7"
+                            class="form-control"></textarea>
+                        <div *ngIf="patientControls.report.touched && patientControls.report.invalid"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.report.errors.required">Patient Report is required.</div>
+                            <!-- <div *ngIf="controls.report.errors.minlength">Name should be 3 character.</div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Patient Examination Images  -->
+                <div class="form-group">
+                    <div class="row col-sm-10">
+                        <add-patient-images></add-patient-images>
+                    </div>
+                </div>
+
+                <!-- Exam Cost -->
+                <div class="form-group">
+                    <div class="row col-sm-8">
+                        <h4>Financial Cost</h4>
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]="patient.examCost"
+                                formControlName="examCost" placeholder="Exam Cost">
+                        </div>
+                        <div *ngIf="patientControls.examCost.invalid && patientControls.examCost.touched"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.examCost.errors.required">please enter exam cost
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Cast Or Slap Cost Group -->
+                <div class="form-group">
+                    <div class="row col-sm-8">
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]=" patient.slapCost" name="slapCost"
+                                formControlName="slapCost" placeholder="Cast or slap cost">
+                        </div>
+                        <div *ngIf="patientControls.slapCost.invalid && patientControls.slapCost.touched"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.slapCost.errors.required">please enter slap cost
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Follow Up Cost Group-->
+                <div class="form-group">
+                    <div class="row col-sm-8">
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]=" patient.followUpCost"
+                                formControlName="followUpCost" placeholder="Follow up cost">
+                        </div>
+                        <div *ngIf="patientControls.followUpCost.invalid && patientControls.followUpCost.touched"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.followUpCost.errors.required">please enter follow up cost
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Operative Cost Group-->
+                <div class="form-group">
+                    <div class="row col-sm-8">
+                        <div>
+                            <input type="number" class="form-control" [(ngModel)]=" patient.operativeCost"
+                                formControlName="operativeCost" placeholder="Operative Cost">
+                        </div>
+
+                        <div *ngIf="patientControls.operativeCost.invalid && patientControls.operativeCost.touched"
+                            class="alert alert-danger">
+                            <div *ngIf="patientControls.operativeCost.errors.required">please enter operative cost
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row col-sm-6">
+                    <h4>Register New Patient</h4>
+                    <div>
+                        <!-- <input type="submit" [disabled]="patientDataForm.invalid"
+                            class="form-control btn btn-primary" value="Register Patient"> -->
+                        <input type="submit" class="form-control btn btn-primary" value="Register Patient">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>

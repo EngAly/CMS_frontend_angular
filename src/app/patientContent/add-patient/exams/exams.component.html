@@ -1,0 +1,12 @@
+<div class="dropdown">
+    <h4 [ngClass]="['dropdown-toggle','btn','btn-info','patient-diagnostic-btn']" data-toggle="collapse" data-target="#exams">Exams
+        <span class="caret"></span>
+    </h4>
+    <div id="exams" [ngClass]="['collapse','list-group']">
+        <ul>
+            <li *ngFor="let exam of exams" (click)="toggleAilment(exam)" [class.is-done]="exam.isDone"
+                [ngClass]="['list-group-item']">
+                {{exam.name}}</li>
+        </ul>
+    </div>
+</div>

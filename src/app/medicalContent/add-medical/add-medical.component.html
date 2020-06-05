@@ -1,0 +1,31 @@
+<div class="container">
+
+    <div class="center-screen">
+        <h1 class="patient-headers">Add New Medicine </h1>
+        <img src="assets/images/medicine.png" width="800" height="300">
+    </div>
+
+    <!-- Form-->
+    <form [formGroup]="medicalDataForm" (submit)="saveMedical()">
+        <div class="row">
+            <div class="form-group center-screen">
+                <!-- add medical-->
+                <div class="col-sm-8">
+                    <input type="text" formControlName="medical" [(ngModel)]="medical.name" placeholder="Add Medicine"
+                        class="form-control">
+                    <div *ngIf="medicalControls.medical.touched && medicalControls.medical.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="medicalControls.medical.errors.required">please enter disease name
+                        </div>
+                    </div>
+                </div>
+                <!-- save medical -->
+                <div class="col-sm-2">
+                    <input type="submit" [disabled]="medicalDataForm.invalid" class="form-control btn btn-primary"
+                        value="Add Medicine">
+                </div>
+
+            </div>
+        </div>
+    </form>
+</div>

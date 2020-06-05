@@ -1,0 +1,15 @@
+<!-- <img *ngFor='let url of images' [src]="url" height="150" width="200px" style="margin: 3px;"> <br /> -->
+
+<form [formGroup]="imagesForm" [ngClass]="['report']">
+    <!-- images field is patient examination images -->
+    <h4 for="imaging_id">Patient Examination Images</h4>
+    <input formControlName="images" id="imaging_id" class="form-control btn btn-primary" type="file" multiple
+        (change)="onFileChange($event)">
+    <!-- if user want to add a validation  -->
+    <!-- <div *ngIf="patientReportControls.images.touched && patientReportControls.images.invalid"
+        class="alert alert-danger">
+        <div *ngIf="patientReportControls.images.errors.required">images is required.</div>
+    </div> -->
+    <!-- if user want to add button -->
+    <!-- <input type="submit" [disabled]="reportFormControls().invalid" class="form-control btn btn-primary" value="Register Patient"> -->
+</form>

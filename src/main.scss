@@ -1,0 +1,28 @@
+$selectText: none;
+
+body {
+  -webkit-touch-callout: $selectText;
+  -webkit-user-select: $selectText;
+  -khtml-user-select: $selectText;
+  -moz-user-select: $selectText;
+  -ms-user-select: $selectText;
+  user-select: $selectText;
+}
+
+.patient-diagnostic-btn {
+  width: 60%;
+}
+
+// patient bold title styles
+.patient-headers {
+  color: indianred;
+}
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 15px;
+}

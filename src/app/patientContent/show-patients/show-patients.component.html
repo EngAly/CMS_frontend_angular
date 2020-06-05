@@ -1,0 +1,53 @@
+<div class="container">
+    <h1 class="text-center patient-headers"> All Patients details </h1>
+    <div id="patients" [ngClass]="['list-group']">
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Patient Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Marital Status</th>
+                    <th>occupation</th>
+                    <th>operations</th>
+                    <th>TTTT Plane</th>
+                    <th>Date Of FollowUp</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of patients; let i=index" (click)="getPatientDetails(patient)">
+
+                    <td>{{patient.id}}</td>
+                    <td>{{patient.fullName}}</td>
+                    <td>{{patient.gender}}</td>
+                    <td>{{patient.age}}</td>
+                    <td>{{patient.maritalStatus}}</td>
+                    <td>{{patient.occupation}}</td>
+                    <td>{{patient.operations}}</td>
+                    <td>{{patient.ttttPlane}}</td>
+                    <td>{{patient.dateOfFollowUp | date}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <div class="btn-group horizontal-middle">
+        <button type="button" class="btn btn-primary btn-lg" [disabled]="currentPage==0"
+            (click)="First()">First</button>
+
+        <button type=" button" class="btn btn-primary btn-lg" [disabled]="currentPage==0"
+            (click)="Previous()">Previous</button>
+
+        <button type="button" class="btn btn-primary btn-lg" [disabled]="currentPage==totalPages -1 || noData"
+            (click)="Next()">Next</button>
+
+        <button type="button" class="btn btn-primary btn-lg" [disabled]="currentPage==totalPages -1 || noData"
+            (click)="Last()">Last</button>
+    </div>
+
+</div>

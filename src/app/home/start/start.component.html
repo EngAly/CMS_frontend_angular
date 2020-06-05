@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid" style="font-size: 17px;">
+        <div class="navbar-header">
+            <a class="navbar-brand" style="font-size: 22px;">Clinic Managment System</a>
+        </div>
+        <ul class="nav navbar-nav" >
+
+            <li class="active" style="margin-left: 10px;">
+                <!-- <a routerLink="/showPatientData" routerLinkActive="active">Home</a> -->
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Shows <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <!-- <li><a routerLink="/patient" routerLinkActive="active">Show Patient</a></li> -->
+                    <li><a routerLink="/patients" routerLinkActive="active">Show Patients</a></li>
+                </ul>
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Add New<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a (click)="eraseLastPatient()" routerLink="/add-patient" routerLinkActive="active">Patient</a></li>
+                    <li><a routerLink="/add-complaint" routerLinkActive="active">Complaint</a></li>
+                    <li><a routerLink="/add-medical" routerLinkActive="active">Medical</a></li>
+                    <li><a routerLink="/add-disease" routerLinkActive="active">Disease</a></li>
+                    <li><a routerLink="/add-exam" routerLinkActive="active">Exam</a></li>
+                    <li><a routerLink="/add-habit" routerLinkActive="active">Habit</a></li>
+
+                </ul>
+            </li>
+
+            <!-- <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Updates<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a routerLink="/update-patient" routerLinkActive="active">Update Patient</a></li>
+                </ul>
+            </li> -->
+
+
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+</nav>

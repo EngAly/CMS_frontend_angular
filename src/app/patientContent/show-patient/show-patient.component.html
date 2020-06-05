@@ -1,0 +1,112 @@
+<div style="margin: 5%;" *ngIf="patient">
+        <h1 class="text-center patient-headers">Patient Details </h1>
+        <hr />
+
+        <div class="row">
+
+                <!--start personal Information-->
+                <div class="col-sm-3 card">
+                        <div class="card-header text-center"> Personal Information </div>
+
+                        <div class="list-group">
+                                <label class="list-group-item">patient Name : <span
+                                                class="patient-details">{{patient.fullName}}</span></label>
+
+                                <label class="list-group-item">Date Of Registration : <span
+                                                class="patient-details">{{patient.dateOfRegistration | date}}</span></label>
+
+                                <label class="list-group-item">patient Age : <span
+                                                class="patient-details">{{patient.age}}</span></label>
+
+                                <label class="list-group-item">Date Of Birth : <span
+                                                class="patient-details">{{patient.dateOfBirth | date}}</span></label>
+
+                                <label class="list-group-item">Gender : <span
+                                                class="patient-details">{{patient.gender}}</span></label>
+
+                                <label class="list-group-item">Marital Status : <span
+                                                class="patient-details">{{patient.maritalStatus}}</span></label>
+
+                                <label class="list-group-item">Number Of Children : <span
+                                                class="patient-details">{{patient.numberOfChildren}}</span></label>
+
+                                <label class="list-group-item">Occupation : <span
+                                                class="patient-details">{{patient.occupation}}</span></label>
+
+                                <label class="list-group-item">Operations : <span
+                                                class="patient-details">{{patient.operations}}</span></label>
+
+                                <label class="list-group-item">Allergy: <span
+                                                class="patient-details">{{patient.allergy}}</span></label>
+
+                                <label class="list-group-item">TTTT Plane : <span
+                                                class="patient-details">{{patient.ttttPlane}}</span></label>
+
+                                <label class="list-group-item"><button class="btn btn-primary"
+                                                routerLink="/update-patient" routerLinkActive="active"
+                                                [disabled]="!dataReady" (click)="patientDetails(patient)">Update Current
+                                                Patient</button>
+                                </label>
+                        </div>
+                </div>
+
+                <!--Start Patient examination images-->
+                <div class="col-sm-6">
+                        <show-patient-images [retrievedImages]="patientImages"></show-patient-images>
+                </div>
+
+                <!--Start Clinical Information-->
+                <div class="col-sm-3 card">
+                        <div class="card-header text-center"> Clinical Information </div>
+
+                        <div class="list-group">
+
+                                <label class="list-group-item">Habits : <span
+                                                class="patient-details">{{habits}}</span></label>
+
+                                <label class="list-group-item">Complaint : <span
+                                                class="patient-details">{{complaints}}</span></label>
+
+                                <label class="list-group-item">Diseases : <span
+                                                class="patient-details">{{diseases}}</span></label>
+
+                                <!-- <label class="list-group-item">Allergy Type : <span
+                        class="patient-details">{{patient.allergyType}}</span></label> -->
+
+                                <label class="list-group-item">Medication: <span
+                                                class="patient-details">{{medicines}}</span></label>
+
+                                <label class="list-group-item">Exams: <span
+                                                class="patient-details">{{exams}}</span></label>
+
+                                <label class="list-group-item">Date Of Follow: <span
+                                                class="patient-details">{{patient.dateOfFollowUp | date}}</span></label>
+
+                                <label class="list-group-item">Report : <span
+                                                class="patient-details">{{patient.report}}</span></label>
+
+                                <div>
+                                        <label class="list-group-item">Exam Cost : <span
+                                                        class="patient-details">{{patient.examCost}}</span></label>
+
+                                        <label class="list-group-item">Slap Cost : <span
+                                                        class="patient-details">{{patient.slapCost}}</span></label>
+
+                                        <label class="list-group-item">Follow Up Cost : <span
+                                                        class="patient-details">{{patient.followUpCost}}</span></label>
+
+                                        <label class="list-group-item">Operative Cost : <span
+                                                        class="patient-details">{{patient.operativeCost}}</span></label>
+
+                                        <label class="list-group-item"><button class="btn btn-danger"
+                                                        [disabled]="!dataReady"
+                                                        (click)="deletePatientById(patient.id)">Delete Current
+                                                        Patient</button>
+                                        </label>
+                                </div>
+
+                        </div>
+                </div>
+
+        </div>
+</div>

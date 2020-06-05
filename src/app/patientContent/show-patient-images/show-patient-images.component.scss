@@ -1,0 +1,20 @@
+.carousel {
+  margin-bottom: 5%;
+}
+
+.active {
+  background-color: red($color: #000000);
+  color: green($color: #f511e9);
+  font-size: x-large;
+}
+
+.carousel-inner {
+  width: 100%;
+  height: 85%;
+}
+
+ol {
+  li {
+    background-color: rebeccapurple;
+  }
+}

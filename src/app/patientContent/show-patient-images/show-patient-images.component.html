@@ -1,0 +1,18 @@
+<!-- Carousel -->
+<div id="patientImages" class="carousel slide" data-ride="carousel">
+      
+    <div class="carousel-inner">
+
+        <div class="item" *ngFor="let image of retrievedImages;let index = index" [class.active]="index == 0">
+            <img [src]="image" width="800" height="500">
+        </div>
+
+    </div>
+    <!-- Controls -->
+    <a class="left carousel-control" href="#patientImages" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#patientImages" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
