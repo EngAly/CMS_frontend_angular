@@ -1,0 +1,29 @@
+<div class="container">
+    <!-- <h1 class="text-center patient-headers"> All Patients details </h1> -->
+
+    <!-- Search Section-->
+    <form [formGroup]="checkPatientName" (submit)="searchByName()">
+        <div class="row center-screen">
+            <div class="col-sm-10 form-group">
+                <div class="col-sm-7">
+                    <input type="text" class="form-control" formControlName="name" [(ngModel)]="searchBy.name"
+                        placeholder="Search By Name">
+                    <div *ngIf="patientControls.name.touched && patientControls.name.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="patientControls.name.errors.required">please enter patient name
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <button type="submit" class="form-control btn btn-primary"
+                        [disabled]="checkPatientName.invalid">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- searched context area -->
+    <!-- <retrived-context [patients]="patients"></retrived-context> -->
+
+</div>

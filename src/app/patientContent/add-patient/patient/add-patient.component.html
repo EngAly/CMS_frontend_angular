@@ -9,10 +9,14 @@ feature is depreciated in angular6
   <textarea  formControlName="name" placeholder="Group Name" #textArea>
   </textarea>
 </form>
+
+=> to make border top of the page
+border-top: 1px solid rgb(30, 184, 245);
  -->
 
 <div class="container">
     <h1 class="text-center patient-headers">Add Patient </h1>
+    <hr>
 
     <!-- Form-->
     <form [formGroup]="patientDataForm" (submit)="savePatient()">

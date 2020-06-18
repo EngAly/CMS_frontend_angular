@@ -1,9 +1,9 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid" style="font-size: 17px;">
         <div class="navbar-header">
-            <a class="navbar-brand" style="font-size: 22px;">Clinic Managment System</a>
+            <a class="navbar-brand home-title-font" routerLink="/home">Clinic Managment System</a>
         </div>
-        <ul class="nav navbar-nav" >
+        <ul class="nav navbar-nav">
 
             <li class="active" style="margin-left: 10px;">
                 <!-- <a routerLink="/showPatientData" routerLinkActive="active">Home</a> -->
@@ -20,7 +20,8 @@
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown">Add New<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a (click)="eraseLastPatient()" routerLink="/add-patient" routerLinkActive="active">Patient</a></li>
+                    <li><a (click)="eraseLastPatient()" routerLink="/add-patient" routerLinkActive="active">Patient</a>
+                    </li>
                     <li><a routerLink="/add-complaint" routerLinkActive="active">Complaint</a></li>
                     <li><a routerLink="/add-medical" routerLinkActive="active">Medical</a></li>
                     <li><a routerLink="/add-disease" routerLinkActive="active">Disease</a></li>
@@ -30,12 +31,25 @@
                 </ul>
             </li>
 
-            <!-- <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown">Updates<span class="caret"></span></a>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Statistics<span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                    <li><a routerLink="/update-patient" routerLinkActive="active">Update Patient</a></li>
+                    <li><a routerLink="/patient/statistics/disease" routerLinkActive="active">Diseases</a></li>
+                    <li><a routerLink="/patient/statistics/complaint" routerLinkActive="active">Complaints</a></li>
+                    <li><a routerLink="/patient/statistics/medicine" routerLinkActive="active">Medicals</a></li>
+                    <li><a routerLink="/patient/statistics/habit" routerLinkActive="active">Habits</a></li>
+                    <li><a routerLink="/patient/statistics/exam" routerLinkActive="active">Exams</a></li>
                 </ul>
-            </li> -->
+            </li>
+
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown">Search By<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a [routerLink]="['/patient/searchByName']" routerLinkActive="active">Name</a></li>
+                    <li><a routerLink="/patient/searchByAge" routerLinkActive="active">Age</a></li>
+                    <li><a routerLink="/patient/searchByDate" routerLinkActive="active">Date</a></li>
+                </ul>
+            </li>
 
 
         </ul>

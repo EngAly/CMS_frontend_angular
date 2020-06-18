@@ -1,9 +1,6 @@
 import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Patient } from "src/app/models/Patient";
-import { Complaints } from 'src/app/models/Complaints';
 import { PatientService } from 'src/app/services/patient.service';
-import { Diseases } from 'src/app/models/Diseases';
-import { Medicine } from 'src/app/models/Medicine';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import Utils from 'src/app/utils';
 

@@ -16,6 +16,7 @@ body {
 // patient bold title styles
 .patient-headers {
   color: indianred;
+  margin-top: 6%;
 }
 
 .center-screen {
@@ -25,4 +26,11 @@ body {
   align-items: center;
   text-align: center;
   margin-bottom: 15px;
+}
+
+.chartCanvas {
+  margin-top: 10%;
+  position: relative;
+  height: 40vh;
+  width: 70vw;
 }

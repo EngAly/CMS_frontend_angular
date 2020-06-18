@@ -1,0 +1,40 @@
+<div class="container">
+    <!-- <h1 class="text-center patient-headers"> All Patients details </h1> -->
+
+    <!-- Search Section-->
+    <form [formGroup]="checkPatientDate" (submit)="searchByDate()">
+        <div class="row center-screen">
+            <div class="col-sm-10 form-group">
+
+                <div class="col-sm-4">
+                    <input type="text" [(ngModel)]="searchBy.startDate" formControlName="s_date"
+                        placeholder="Start Date" class="form-control" onmouseover="(this.type='date')"
+                        onmouseout="(this.type='text')">
+                    <div *ngIf="patientControls.s_date.touched && patientControls.s_date.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="patientControls.s_date.errors.required">please enter start date</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <input type="text" [(ngModel)]="searchBy.endDate" formControlName="e_date" placeholder="End Age"
+                        class="form-control" onmouseover="(this.type='date')" onmouseout="(this.type='text')">
+                    <div *ngIf="patientControls.e_date.touched && patientControls.e_date.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="patientControls.e_date.errors.required">please enter end date
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <button type="submit" class="form-control btn btn-primary"
+                        [disabled]="checkPatientDate.invalid">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- searched context area -->
+    <!-- <retrived-context [patients]="patients"></retrived-context> -->
+
+</div>

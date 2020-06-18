@@ -1,5 +1,9 @@
+$color:rgb(6, 144, 185);
+
 .active{
-    background-color: red
+    background-color:$color; 
 }
 
-
+.home-title-font{
+    font-size: 22px;
+}

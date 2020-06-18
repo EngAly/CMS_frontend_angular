@@ -2,8 +2,12 @@ import { Patient } from './models/Patient';
 
 export default class Utils {
 
-  public static patient: Patient;
+  static colors = [
+    "#3cb371", "#0000FF", "#9966FF", "#4C4CFF", "#00FFFF", "#f990a7", "#aad2ed",
+    "#FF00FF", "Blue", "Red", "Blue"
+  ]
 
+  public static patient: Patient;
 
   /**
  * get array of names only for diagnostics
@@ -53,6 +57,15 @@ export default class Utils {
         peculiars.filter(peculiar =>
           peculiar.name == one.name ? peculiar.isDone = !peculiar.isDone : peculiar.isDone = peculiar.isDone))
     }
+  }
+
+  static randomColors(max: number) {
+    let bgColors = [];
+    for (let i = 0; i < max; i++) {
+      // this.colors.length to circle
+      bgColors.push(this.colors[Math.floor(Math.random() * Math.floor(max)) % this.colors.length])
+    }
+    return bgColors;
   }
 
 }

@@ -32,4 +32,5 @@ export class DiseaseService {
   getDiseases(): Observable<Diseases[]> {
     return this.http.get<Diseases[]>(`${this.url}/diseases`)
   }
+
 }

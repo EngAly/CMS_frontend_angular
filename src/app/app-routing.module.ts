@@ -10,6 +10,12 @@ import { AddMedicalComponent } from './medicalContent/add-medical/add-medical.co
 import { AddExamComponent } from './examContent/add-exam/add-exam.component';
 import { ShowPatientsComponent } from './patientContent/show-patients/show-patients.component';
 import { AddHabitComponent } from './habitContent/add-habit/add-habit.component';
+import { HomeComponent } from './home/home/home.component';
+import { GetByNameComponent } from './search/get-by-name/get-by-name.component';
+import { GetByAgeComponent } from './search/get-by-age/get-by-age.component';
+import { GetByDateComponent } from './search/get-by-date/get-by-date.component';
+import { StatisticComponent } from './statistics/statistic/statistic.component';
+import { RetrivedContextComponent } from './search/retrived-context/retrived-context.component';
 
 /**
  * note :-
@@ -26,7 +32,7 @@ const routes: Routes = [
      * so that it will match any url so we use full
      */
     { path: "", redirectTo: "/home", pathMatch: "full" },
-    { path: "home", component: StartComponent },
+    { path: "home", component: HomeComponent },
 
 
     { path: "add-patient", component: AddPatientComponent },
@@ -40,7 +46,29 @@ const routes: Routes = [
     { path: "patients", component: ShowPatientsComponent },
     { path: "patients/:id", component: ShowPatientComponent },
 
+    // statistics
+    { path: "patient/statistics/disease", component: StatisticComponent },
+    { path: "patient/statistics/complaint", component: StatisticComponent },
+    { path: "patient/statistics/medicine", component: StatisticComponent },
+    { path: "patient/statistics/habit", component: StatisticComponent },
+    { path: "patient/statistics/exam", component: StatisticComponent },
 
+    // Search by some fields to show patient snippet details
+    {
+        path: 'patient',
+        component: RetrivedContextComponent,
+        children: [
+            // { path: '', redirectTo: 'searchByName', pathMatch: 'full' },
+            { path: 'searchByName', component: GetByNameComponent },
+            { path: 'searchByAge', component: GetByAgeComponent },
+            { path: 'searchByDate', component: GetByDateComponent },
+        ]
+    },
+
+    // from search pages you can go to complete patient details + data
+    { path: "patient/:id", redirectTo: "/patients/:id", pathMatch: "full" },
+
+    // update section
     { path: "update-patient", component: AddPatientComponent }
 ];
 
@@ -53,8 +81,9 @@ const routes: Routes = [
 
 
 export class AppRoutingModule { }
-export const routingComponent = [StartComponent,
+export const routingComponent = [StartComponent, HomeComponent, StatisticComponent,
     ShowPatientComponent, ShowPatientsComponent,
+    GetByNameComponent, GetByAgeComponent, GetByDateComponent,
     AddPatientComponent, AddComplaintComponent, AddDiseaseComponent, AddMedicalComponent,
     AddExamComponent, AddHabitComponent
 ]

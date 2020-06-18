@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Patient } from '../models/Patient';
 import { GlobalService } from './global.service';
+import { DatePipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +82,24 @@ export class PatientService {
     return this.http.get<Patient[]>(`${this.url}/patientPage?page=` + pageSize)
   }
 
+  getPatientByName(name: string): Observable<Patient[]> {
+    return this.http.get<Patient[]>(`${this.url}/searchByName/${name}`)
+  }
+
+  getPatientByAge(start: number, end: number): Observable<Patient[]> {
+     return this.http.get<Patient[]>(`${this.url}/searchByAge?start=${start}&end=${end}`)
+  }
+
+  getPatientByDate(start: string, end: string): Observable<Patient[]> {
+    return this.http.get<Patient[]>(`${this.url}/searchByDate?start=${start}&end=${end}`)
+ }
+
+  /**
+   * async + wait 
+   * to prevent async for data flow  i.e
+   * to complete all data flow in retriving data and know each message will retrived then
+   * method call it can get final message with sync data flow
+   */
   async deletePatientById(id: number): Promise<boolean> {
     let flag: boolean = false;
     await this.http.delete(`${this.url}/deletePatient/${id}`, { observe: 'response' }).toPromise()
@@ -98,5 +117,6 @@ export class PatientService {
   private getPatientList(): Observable<any> {
     return this.http.get("assets/test.json");
   }
+
 
 }

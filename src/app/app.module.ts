@@ -15,6 +15,9 @@ import { AppRoutingModule, routingComponent } from './app-routing.module';
 import { ShowPatientsComponent } from './patientContent/show-patients/show-patients.component';
 import { HabitsComponent } from './patientContent/add-patient/habits/habits.component';
 import { AddHabitComponent } from './habitContent/add-habit/add-habit.component';
+import { HomeComponent } from './home/home/home.component';
+import { RetrivedContextComponent } from './search/retrived-context/retrived-context.component';
+import { DatePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { AddHabitComponent } from './habitContent/add-habit/add-habit.component'
     routingComponent,
     ShowPatientsComponent,
     HabitsComponent,
-    AddHabitComponent
+    AddHabitComponent,
+    HomeComponent,
+    RetrivedContextComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,7 @@ import { AddHabitComponent } from './habitContent/add-habit/add-habit.component'
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

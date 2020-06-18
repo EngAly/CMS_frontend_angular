@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChange, SimpleChanges } from '@angular/core';
+import { Component} from '@angular/core';
 import { PatientService } from 'src/app/services/patient.service';
 import { Patient } from 'src/app/models/Patient';
 import { Router, ActivatedRoute } from '@angular/router';

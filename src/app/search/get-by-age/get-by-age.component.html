@@ -1,0 +1,41 @@
+<div class="container">
+    <!-- <h1 class="text-center patient-headers"> All Patients details </h1> -->
+
+    <!-- Search Section-->
+    <form [formGroup]="checkPatientAge" (submit)="searchByAge()">
+        <div class="row center-screen">
+            <div class="col-sm-10 form-group">
+
+                <div class="col-sm-3">
+                    <input type="number" min="1" [(ngModel)]="searchBy.startAge" formControlName="s_age" placeholder="Start Age"
+                        class="form-control">
+                    <div *ngIf="patientControls.s_age.touched && patientControls.s_age.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="patientControls.s_age.errors.required">please enter start Age
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-3">
+                    <input type="number" min="1" [(ngModel)]="searchBy.endAge" formControlName="e_age" placeholder="End Age"
+                        class="form-control">
+
+                    <div *ngIf="patientControls.e_age.touched && patientControls.e_age.invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="patientControls.e_age.errors.required">please enter end Age
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <button type="submit" class="form-control btn btn-primary"
+                        [disabled]="checkPatientAge.invalid">Search</button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- searched context area -->
+    <!-- <retrived-context [patients]="patients"></retrived-context> -->
+
+</div>

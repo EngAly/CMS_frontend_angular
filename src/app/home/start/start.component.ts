@@ -13,5 +13,4 @@ export class StartComponent {
   eraseLastPatient() {
     Utils.patient = null;
   }
-
 }
