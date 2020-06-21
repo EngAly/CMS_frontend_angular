@@ -1,0 +1,40 @@
+{
+    "fullName": "hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh",
+    "dateOfRegistration": "12/22/2009",
+    "age": 25,
+    "gender": "Male",
+    "maritalStatus": "Single",
+    "dateOfBirth": "1/2/1991",
+    "dateOfFollowUp": "1/3/2002",
+    "numberOfChildren": 2,
+    "habbit": "dsadsadsa",
+    "occupation": "ddddddddd",
+    "operations": "No",
+    "ttttPlane": "sssssss",
+    "report": "how are you my patient here you can fill with all comfortable",
+    "complaints": [
+        "سكارس",
+        "سيصص",
+        "كوكوي"
+    ],
+    "diseases": [
+        "aaaaa",
+        "bddddddd",
+        "ceeeeeee",
+        "dwwwwwwww"
+    ],
+    "medicines": [
+        "1111111",
+        "222222",
+        "23333333333333"
+    ],
+    "exams": [
+        "wwwww",
+        "eeeeeeee",
+        "qqqqqqqqq"
+    ],
+    "examCost": 111,
+    "slapCost": 221,
+    "followUpCost": 122,
+    "operativeCost": 123
+}
