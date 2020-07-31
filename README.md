@@ -1,7 +1,10 @@
-### CMS => Clinic Management System
+# CMS => Clinic Management System
 Medical practice management software needs to have a wide range of features in order to satisfy the needs of today's medical clinics. Clinic Management System is an integrated information system for managing all aspects of a medical clinic's operations such as medical and helps healthcare practitioners manage clinical information and patient care services with greater efficiency.
 
-# Clinic Management System Features
+## Portfolio
+https://photos.google.com/album/AF1QipMlO_Qv77o9C0QkcQdf9yFByCR1-Nta35uJzFT7
+
+### Clinic Management System Features
 * Serve more patients every day with better workflows and increased productivity. Flexible.   
 * Own Your Patient Database. All the Support You Need like Services   
 * Improved Customer Services   
